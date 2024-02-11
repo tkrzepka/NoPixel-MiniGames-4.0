@@ -98,7 +98,7 @@ function nextLock() {
         indicateCompleted(currentCircle);
         currentCircle++;
         var lockCircle = document.getElementById("lock-circle".concat(currentCircle));
-        lockCircle.style.outlineColor = 'rgb(239, 181, 17)';
+        lockCircle.style.outlineColor = 'rgb(203, 245, 66)';
     }
     else if (currentCircle === 5) {
         indicateCompleted(currentCircle);
@@ -192,7 +192,7 @@ function generateCircle(circleNum) {
     var lockContainer = document.querySelector('.lock-container');
     var lockCircle = document.createElement('div');
     if (circleNum === 1) { //Ensure the selector is on the first circle at start
-        lockCircle.style.outlineColor = 'rgb(239, 181, 17)';
+        lockCircle.style.outlineColor = 'rgb(203, 245, 66)';
     }
     lockCircle.id = "lock-circle".concat(circleNum);
     lockCircle.className = 'lock-circle';
