@@ -96,8 +96,8 @@ body {
 
 /* Balls attached to the lock-circles */
 .ball {
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background-color: rgb(255, 255, 255);
     position: absolute;
