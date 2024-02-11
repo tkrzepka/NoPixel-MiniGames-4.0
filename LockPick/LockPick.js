@@ -1,10 +1,10 @@
 var timerInterval = null;
-var secondsRemaining = 12;
+var secondsRemaining = 11;
 var currentCircle = 1;
 var isLocked = false;
 function updateTimerDisplay() {
     var timerProgress = document.querySelector(".timer-progress-bar");
-    var percentageLeft = Math.floor(100 * secondsRemaining / 12);
+    var percentageLeft = Math.floor(100 * secondsRemaining / 11);
     if (timerProgress) {
         timerProgress.style.width = "".concat(percentageLeft, "%");
     }
@@ -196,15 +196,15 @@ function generateCircle(circleNum) {
     }
     lockCircle.id = "lock-circle".concat(circleNum);
     lockCircle.className = 'lock-circle';
-    lockCircle.style.width = "".concat(-20 + 80 * circleNum, "px");
-    lockCircle.style.height = "".concat(-20 + 80 * circleNum, "px");
+    lockCircle.style.width = "".concat(30+70 * circleNum, "px");
+    lockCircle.style.height = "".concat(30+70 * circleNum, "px");
     lockContainer.appendChild(lockCircle);
     return lockCircle;
 }
 function generateSemiCircle(circleNum, position, color) {
     var semiCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     var svgCircle = document.querySelector('.position-container svg');
-    var r = 5 + circleNum * 40; //The radius needed for the different lockCircles
+    var r = 29 + circleNum * 35; //The radius needed for the different lockCircles
     semiCircle.setAttribute("class", "position-circle");
     semiCircle.setAttribute("id", "circle".concat(circleNum, "-").concat(position));
     semiCircle.setAttribute("cx", "50%");
@@ -221,7 +221,7 @@ function generateHack() {
     var colors = ['rgb(202, 39, 97)', 'rgb(239, 181, 17)', 'rgb(46, 134, 213)']; //Available colors for the balls
     //Generate between 2-12 balls in different colors for each lock-circle
     for (var i = 1; i < 6; i++) {
-        var positionChecks = Math.floor(Math.random() * (8 - 4) + 4); //The semi-circles that indicate which color needs to be where
+        var positionChecks = Math.floor(Math.random() * (10 - 4) + 4); //The semi-circles that indicate which color needs to be where
         var ballAmt = Math.floor(Math.random() * (13 - 5) + 5);
         var shuffledPositions = shufflePositions(positions);
         var lockCircle = generateCircle(i);
@@ -233,7 +233,7 @@ function generateHack() {
             }
             ballElem.id = "C".concat(i, "ball").concat(j);
             ballElem.className = 'ball';
-            ballElem.style.transform = "translate(-50%, -50%) rotateZ(".concat(shuffledPositions[j], "deg) translate(").concat(-10 + 40 * i, "px, 0px)");
+            ballElem.style.transform = "translate(-50%, -50%) rotateZ(".concat(shuffledPositions[j], "deg) translate(").concat(21+35* i, "px, 0px)");//partially useless code?
             ballElem.style.backgroundColor = randomColor;
             lockCircle === null || lockCircle === void 0 ? void 0 : lockCircle.appendChild(ballElem);
         }
@@ -256,7 +256,7 @@ function rotateBalls(dir) {
         else {
             newRotateZ = currentRotateZ - 30;
         }
-        ball.style.transform = "translate(-50%, -50%) rotateZ(".concat(newRotateZ, "deg) translate(").concat(-10 + 40 * currentCircle, "px, 0px)");
+        ball.style.transform = "translate(-50%, -50%) rotateZ(".concat(newRotateZ, "deg) translate(").concat(16+35 * currentCircle, "px, 0px)");
     });
 }
 function handleKeyPress(event) {
