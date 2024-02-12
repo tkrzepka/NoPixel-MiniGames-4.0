@@ -13,7 +13,7 @@ function runTimer() {
     timerInterval = setInterval(function () {
         secondsRemaining--;
         updateTimerDisplay();
-        if (secondsRemaining <= 0) {
+        if (secondsRemaining < 0) {
             resetGame("lose");
         }
     }, 1000);
@@ -47,7 +47,7 @@ function resetGame(status) {
         setTimeout(function () {
             timerProgress.style.removeProperty('display');
         }, 1000);
-        secondsRemaining = 12;
+        secondsRemaining = 11;
     }
     if (status === "win") {
         var winMsg_1 = document.querySelector(".win-message");
